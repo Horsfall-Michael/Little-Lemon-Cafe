@@ -32,7 +32,7 @@ function updateCart() {
     document.querySelector('button.checkout-btn').style.display = 'block';
     cartCount.style.display = "inline-block";
     cartSummarySection.style.display = 'block'
-    cartCount.textContent = cart.length; 
+      
 
     cart.forEach((item, index) => {
       const itemDiv = document.createElement("div");

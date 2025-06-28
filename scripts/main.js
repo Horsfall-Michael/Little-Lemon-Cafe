@@ -1,3 +1,6 @@
+import {products} from "./Products.js";
+
+
 let coffeeProductsHTML = '';
 let teaProductsHTML = '';
 let foodProductsHTML = '';
@@ -70,9 +73,14 @@ orderButtons.forEach((button) => {
       existingItem.quantity++;
     } else {
       cart.push({ name: productName, price: price, quantity: 1 });
-    }
+    };
 
-    console.log(cart);
+    let cartQuantity = 0;
+
+    cart.forEach((item)=>{
+      cartQuantity += item.quantity;
+    })
+    cartCount.textContent = cartQuantity;
     updateCart(); 
   });
 });
