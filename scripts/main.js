@@ -1,5 +1,6 @@
-import {products} from "./Products.js";
-
+import { products } from "./Products.js";
+import { cart, cartCount, updateCart, setupCartUI } from './cart.js';
+setupCartUI();
 
 let coffeeProductsHTML = '';
 let teaProductsHTML = '';
@@ -7,43 +8,33 @@ let foodProductsHTML = '';
 let desertProductsHTML = '';
 
 products.forEach(product => {
+  let price = (product.priceCents / 100).toFixed(2);
 
-  let price = (product.priceCents/100).toFixed(2);
+  const productHTML = `
+    <div class="menu-card">
+      <img src="${product.image}" class="product-image">
+      <h3>${product.name}</h3>
+      <p>${product.description}</p>
+      <p class="price">$${price}</p>
+      <button class="order js-order-button"
+        data-product-name="${product.name}"
+        data-price="${price}">Order</button>
+    </div>`;
 
-  if (product.category === 'Coffee'){
- coffeeProductsHTML += `<div class="menu-card">
-        <img src="${product.image}" class="product-image">
-        <h3>${product.name}</h3>
-        <p>${product.description}</p>
-        <p class="price">$${price}</p>
-        <button class="order js-order-button" data-product-name = "${product.name}"  data-price=${price}>Order</button>
-      </div>`
-  }else if (product.category === 'Tea' ){
-    teaProductsHTML += `<div class="menu-card">
-        <img src="${product.image}" class="product-image">
-        <h3>${product.name}</h3>
-        <p>${product.description}</p>
-        <p class="price">$${price}</p>
-        <button class="order js-order-button"
-        data-product-name = "${product.name}"  data-price=${price}>Order</button>
-      </div>`
-  }  else if (product.category === 'Desert' ){
-    desertProductsHTML += `<div class="menu-card">
-        <img src="${product.image}" class="product-image">
-        <h3>${product.name}</h3>
-        <p>${product.description}</p>
-        <p class="price">$${price}</p>
-        <button class="order js-order-button" data-product-name ="${product.name}"  data-price=${price}>Order</button>
-      </div>`
-  }else if (product.category === 'Food' ){
-    foodProductsHTML += `<div class="menu-card">
-        <img src="${product.image}" class="product-image">
-        <h3>${product.name}</h3>
-        <p>${product.description}</p>
-        <p class="price">$${price}</p>
-        <button class="order js-order-button" data-product-name = "${product.name}" data-price=${price}>Order</button>
-      </div>`
-  }; 
+  switch (product.category) {
+    case 'Coffee':
+      coffeeProductsHTML += productHTML;
+    break;
+    case 'Tea':
+      teaProductsHTML += productHTML;
+    break;
+    case 'Food':
+      foodProductsHTML += productHTML;
+    break;
+    case 'Desert':
+      desertProductsHTML += productHTML;
+    break;
+  }
 });
 
 document.querySelector('.js-coffee-section')
