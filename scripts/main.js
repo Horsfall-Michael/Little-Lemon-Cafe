@@ -90,7 +90,9 @@ orderButtons.forEach((button) => {
       cartQuantity += item.quantity;
     })
     cartCount.textContent = cartQuantity;
-    updateCart(); 
+    updateCart();
+    
+    localStorage.setItem('cart', JSON.stringify(cart)) 
   });
 });
 

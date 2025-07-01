@@ -1,4 +1,4 @@
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 const taxRate = 0.10;
 
 const cartCount = document.getElementById("cart-count");
@@ -13,6 +13,7 @@ const cartTax = document.getElementById("tax");
 const cartSubTotal = document.getElementById("subtotal");
 
 function updateCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
   cartItemsContainer.innerHTML = "";
 
   if (cart.length === 0) {
@@ -74,22 +75,24 @@ function setupCartUI() {
   checkoutBtn.addEventListener("click", () => {
   
     cartItemsContainer.innerHTML = "<p class='modal-display-message'> Thank you for your order! </p>";
+    cartCount.style.display = 'none';
 
+    document.querySelector('button.checkout-btn').style.display = 'none';
+
+    cartSummarySection.style.display = 'none';
+    
     setTimeout(()=>{
-      cartModal.style.display = 'none';
+     cartModal.style.display = 'none';
 
      cart.length = 0; 
-
-     cartCount.style.display = 'none';
-
-     checkoutBtn.style.display = 'none';
-
+     localStorage.removeItem('cart', JSON.stringify(cart));
      updateCart();
 
     }, 2000);
     
   });
  updateCart();
+
   cartItemsContainer.addEventListener("click", (event) => {
     if (event.target.classList.contains("quantity-btn")) {
       const index = event.target.getAttribute("data-id");
@@ -97,6 +100,7 @@ function setupCartUI() {
       if (cart[index].quantity + change > 0) {
         cart[index].quantity += change;
       }
+      localStorage.setItem('cart', JSON.stringify(cart));
       updateCart();
     }
 
@@ -104,9 +108,9 @@ function setupCartUI() {
       const index = event.target.getAttribute("data-index");
       cart.splice(index, 1);
       updateCart();
+      localStorage.setItem('cart', JSON.stringify(cart));
     }
   });
-
   updateCart();
 }
 
