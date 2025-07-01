@@ -1,4 +1,4 @@
-const cart = [];
+let cart = [];
 const taxRate = 0.10;
 
 const cartCount = document.getElementById("cart-count");
@@ -16,7 +16,7 @@ function updateCart() {
   cartItemsContainer.innerHTML = "";
 
   if (cart.length === 0) {
-    cartItemsContainer.innerHTML = "<p>You haven't placed an order yet</p>";
+    cartItemsContainer.innerHTML = "<p class='modal-display-message'>You haven't placed an order yet</p>";
     document.querySelector('button.checkout-btn').style.display = 'none';
     cartCount.style.display = 'none';
     cartSummarySection.style.display = 'none';
@@ -30,7 +30,7 @@ function updateCart() {
       itemDiv.classList.add("cart-item");
       itemDiv.innerHTML = `
         <div class="cart-item-details">
-          <p class="item-name">${item.name} - $${item.price}</p>
+          <p class="item-name">${item.name} - $${item.price*item.quantity}</p>
           <div class="quantity-controls">
             <button class="quantity-btn" data-id="${index}" data-change="-1">-</button>
             <span>${item.quantity}</span>
@@ -56,24 +56,40 @@ function updateCart() {
 function setupCartUI() {
   cartDisplayElement.addEventListener('click', () => {
     cartModal.style.display = "flex";
+    document.body.classList.add("modal-open");
   });
 
   window.addEventListener("click", (event) => {
     if (event.target === cartModal) {
       cartModal.style.display = "none";
+      document.body.classList.remove("modal-open");
     }
   });
 
   closeModalBtn.addEventListener("click", () => {
     cartModal.style.display = "none";
+    document.body.classList.remove("modal-open");
   });
 
   checkoutBtn.addEventListener("click", () => {
-    cartItemsContainer.innerHTML = "Thank you for your order!";
-    cart.length = 0;
-    updateCart();
-  });
+  
+    cartItemsContainer.innerHTML = "<p class='modal-display-message'> Thank you for your order! </p>";
 
+    setTimeout(()=>{
+      cartModal.style.display = 'none';
+
+     cart.length = 0; 
+
+     cartCount.style.display = 'none';
+
+     checkoutBtn.style.display = 'none';
+
+     updateCart();
+
+    }, 2000);
+    
+  });
+ updateCart();
   cartItemsContainer.addEventListener("click", (event) => {
     if (event.target.classList.contains("quantity-btn")) {
       const index = event.target.getAttribute("data-id");

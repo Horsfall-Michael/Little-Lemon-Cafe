@@ -14,7 +14,7 @@ products.forEach(product => {
     <div class="menu-card">
       <img src="${product.image}" class="product-image">
       <h3>${product.name}</h3>
-      <p>${product.description}</p>
+      <p class="description">${product.description}</p>
       <p class="price">$${price}</p>
       <button class="order js-order-button"
         data-product-name="${product.name}"
@@ -52,6 +52,24 @@ document.querySelector('.js-deserts-section')
 
 const orderButtons = document.querySelectorAll('.js-order-button');
 
+function isTextClamped(el) {
+  return el.scrollHeight > el.clientHeight;
+}
+
+
+function enableExpandableDescriptions() {
+  const descriptions = document.querySelectorAll('.description');
+
+  descriptions.forEach(desc => {
+    if (isTextClamped(desc)) {
+      desc.addEventListener('click', () => {
+        desc.classList.toggle('expanded');
+      });
+    }
+  });
+}
+
+
 orderButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const productName = button.dataset.productName;
@@ -77,3 +95,4 @@ orderButtons.forEach((button) => {
 });
 
 
+enableExpandableDescriptions();
