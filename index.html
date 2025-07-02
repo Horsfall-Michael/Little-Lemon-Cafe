@@ -12,68 +12,75 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/cart.css">
+  <link rel="stylesheet" href="CSS/modal.css">
 </head>
 
 <body>
-  <section class="text-container"> 
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"  aria-expanded="false"> <i class="fa-solid fa-bars"></i>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#"></a> Our Menu</li>
-        <li><a class="dropdown-item" href="#"></a> Our Recipes</li>
-        <li><a class="dropdown-item" href="#">Services</a></li>
+  <header>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li>Home</li>
+        <li>Menu</li>
+        <li>Contact Us</li>
       </ul>
+    </nav>
+    <div class="hero-section-main">
+     <div>
+       <img src="images/LLC-text.png" alt="logo" class="hero-logo-text">
+       <p class="hero-subtext">Savor handcrafted flavors, freshly brewed coffe, and a warm atmosphere.</p>
+       
+     </div>
+     <img src="images/cup-image.png" alt="Coffe cup" class="hero-cup-image">
     </div>
-    <div class="img-container">
-      <img src="images/LLC WT.jpg" alt="Responsive Image">
-  </div>
-  </section>
-  <section class="Menu">
-    <h1> Our Menu
-      <hr>
-    </h1>
+  </header>
+  <main>
+    <section class="Menu">
+      <h1> Our Menu
+        <hr>
+      </h1>
 
-    <h2> Coffee </h2>
-    <div class="js-coffee-section product-display-section"></div>
+      <h2> Coffee </h2>
+      <div class="js-coffee-section product-display-section"></div>
 
-    <h2> Tea & Alternatives </h2>
-    <div class="js-tea-section product-display-section"></div>
+      <h2> Tea & Alternatives </h2>
+      <div class="js-tea-section product-display-section"></div>
 
-    <h2> Food</h2>
-    <div class="js-food-section product-display-section"></div>
+      <h2> Food</h2>
+      <div class="js-food-section product-display-section"></div>
 
-    <h2> Deserts</h2>
-   <div class="js-deserts-section product-display-section"></div>
+      <h2> Deserts</h2>
+      <div class="js-desserts-section product-display-section"></div>
 
-  </section>
+    </section>
 
-<div id="cart-icon">
-  <i class="fas fa-shopping-cart js-cart-icon"></i>
-  <span id="cart-count">0</span>
-</div>
+   <div id="cart-icon">
+     <i class="fas fa-shopping-cart js-cart-icon"></i>
+     <span id="cart-count">0</span>
+   </div>
 
-<!-- Cart Modal -->
-<div id="cart-modal" class="modal">
-  <div class="modal-wrapper">
-    <span id="close-modal" class="close">&times;</span>
-    <div class="modal-content">
-      <img src="images/logo.png" alt="logo" class="modal-logo">
-      
-      <div class="js-cart-html"></div>
+    <!-- Cart Modal -->
+    <section class="modal">
+        <div id="cart-modal" class="modal">
+        <div class="modal-wrapper">
+          <span id="close-modal" class="close">&times;</span>
+          <div class="modal-content">
+            <img src="images/logo.png" alt="logo" class="modal-logo">
+            
+            <div class="js-cart-html"></div>
 
-      <div class="cart-summary js-cart-summary"> 
-        <h5>Cart total: <span id="cart-total">$0.00</span></h5> 
-        <h5>Tax: <span id="tax">$0.00</span></h5> <h3>Subtotal: <span id="subtotal">$0.00</span></h3>
+            <div class="cart-summary js-cart-summary"> 
+              <h5>Cart total: <span id="cart-total">$0.00</span></h5> 
+              <h5>Tax: <span id="tax">$0.00</span></h5> <h3>Subtotal: <span id="subtotal">$0.00</span></h3>
+            </div>
+            <button id="checkout" class="checkout-btn">Checkout</button>
+          </div>
+        </div>
       </div>
-      <button id="checkout" class="checkout-btn">Checkout</button>
-    </div>
-  </div>
-</div>
+    </section>
+  </main>
 
-
-
-<footer class="footer">
+ <footer class="footer">
     <div class="grid-item">
       <h1 style="font-family: gabriola;"> Little Lemon Cafe </h1>
     </div>

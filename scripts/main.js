@@ -5,7 +5,7 @@ setupCartUI();
 let coffeeProductsHTML = '';
 let teaProductsHTML = '';
 let foodProductsHTML = '';
-let desertProductsHTML = '';
+let dessertProductsHTML = '';
 
 products.forEach(product => {
   let price = (product.priceCents / 100).toFixed(2);
@@ -31,8 +31,8 @@ products.forEach(product => {
     case 'Food':
       foodProductsHTML += productHTML;
     break;
-    case 'Desert':
-      desertProductsHTML += productHTML;
+    case 'Dessert':
+      dessertProductsHTML += productHTML;
     break;
   }
 });
@@ -46,8 +46,8 @@ document.querySelector('.js-tea-section')
 document.querySelector('.js-food-section')
  .innerHTML = foodProductsHTML;
 
-document.querySelector('.js-deserts-section')
- .innerHTML = desertProductsHTML;
+document.querySelector('.js-desserts-section')
+ .innerHTML = dessertProductsHTML;
 
 
 const orderButtons = document.querySelectorAll('.js-order-button');
