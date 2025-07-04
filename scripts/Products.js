@@ -150,36 +150,36 @@ export const products = [
     name: 'Fruit Cup',
     priceCents: 320,
     description: 'Seasonal fresh fruit served chilled.',
-    category: 'Dessert',
+    category: 'Desert',
   },{
     image:'images/brownie.jpg',
     name:'Brownie',
     priceCents: 450,
     description:'A decadent and chocolate treat.',
-    category:'Dessert'
+    category:'Desert'
   },{
     image:'images/cookie.jpg',
     name:'Cookie',
     priceCents: 450,
     description:'Chocolate and otmeal treat.',
-    category:'Dessert'
+    category:'Desert'
   },{
     image: 'images/Lemon Tartlets.jpeg',
     name: 'Lemon Tart',
     priceCents: 400,
     description: 'Tangy lemon curd in a buttery pastry shell.',
-    category: 'Dessert',
+    category: 'Desert',
   },{
     image: 'images/Cinnamon Rolls.jpeg',
     name: 'Cinnamon Roll',
     priceCents: 350,
     description: 'Warm, soft roll with cinnamon sugar and icing.',
-    category: 'Dessert',
+    category: 'Desert',
   },{
     image:'images/cheese cake.jpg',
     name:'Cheesecake',
     priceCents: 550,
     description:'A slice of some creamy and smooth cheese cake.',
-    category:'Dessert'
+    category:'Desert'
   }
 ]
