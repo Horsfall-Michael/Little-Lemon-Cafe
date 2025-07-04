@@ -12,7 +12,7 @@ products.forEach(product => {
 
   const productHTML = `
     <div class="menu-card">
-      <img src="${product.image}" class="product-image">
+      <img src="${product.image}" class="product-image" alt="Product image">
       <h3>${product.name}</h3>
       <p class="description">${product.description}</p>
       <p class="price">$${price}</p>
@@ -23,6 +23,7 @@ products.forEach(product => {
 
   switch (product.category) {
     case 'Coffee':
+
       coffeeProductsHTML += productHTML;
     break;
     case 'Tea':
@@ -98,3 +99,75 @@ orderButtons.forEach((button) => {
 
 
 enableExpandableDescriptions();
+
+
+const searchInput = document.getElementById('searchInput');
+
+searchInput.addEventListener('input', () => {
+  let searchTerm = searchInput.value.toLowerCase();
+  let matchFound = false;
+
+  document.querySelectorAll('.category-section').forEach(section => {
+    const cards = section.querySelectorAll('.menu-card');
+    let matchCount = 0;
+
+    cards.forEach(card => {
+      const name = card.querySelector('h3').textContent.toLowerCase();
+      const description = card.querySelector('.description').textContent.toLowerCase();
+      const matches = name.includes(searchTerm) || description.includes(searchTerm);
+
+      card.style.display = matches ? 'block' : 'none';
+
+      if (matches) matchCount++;
+    });
+
+    const header = section.querySelector('.category-header');
+    header.style.display = matchCount === 0 ? 'none' : 'block';
+
+    if (matchCount > 0) matchFound = true;
+  });
+
+  const noResultMsg = document.querySelector('.no-results');
+  
+  if (!matchFound && searchTerm.trim() !== "") {
+    noResultMsg.style.display = 'block';
+    
+    
+    setTimeout(() => {
+      searchInput.value = '';
+      noResultMsg.style.display = 'none';
+
+      // Reset all cards and headers
+      document.querySelectorAll('.category-section').forEach(section => {
+        section.querySelector('.category-header').style.display = 'block';
+        section.querySelectorAll('.menu-card').forEach(card => {
+          card.style.display = 'block';
+        });
+      });
+    }, 72000);
+  } else {
+    noResultMsg.style.display = 'none';
+  }
+});
+
+const clearSearch = document.getElementById('clearSearch');
+
+searchInput.addEventListener('input', () => {
+  clearSearch.style.display = searchInput.value ? 'block' : 'none';
+});
+
+clearSearch.addEventListener('click', () => {
+  searchInput.value = '';
+  clearSearch.style.display = 'none';
+
+  // Reset all cards and headers
+  document.querySelectorAll('.category-section').forEach(section => {
+    section.querySelector('.category-header').style.display = 'block';
+    section.querySelectorAll('.menu-card').forEach(card => {
+      card.style.display = 'block';
+    });
+  });
+
+  document.querySelector('.no-results').style.display = 'none';
+});
+
