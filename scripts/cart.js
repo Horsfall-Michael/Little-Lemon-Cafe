@@ -25,13 +25,16 @@ function updateCart() {
     document.querySelector('button.checkout-btn').style.display = 'block';
     cartCount.style.display = "inline-block";
     cartSummarySection.style.display = 'block';
-
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
     cart.forEach((item, index) => {
       const itemDiv = document.createElement("div");
       itemDiv.classList.add("cart-item");
       itemDiv.innerHTML = `
         <div class="cart-item-details">
-          <p class="item-name">${item.name} - $${item.price*item.quantity}</p>
+          <p class="item-name">${item.name} - ${formatter.format(item.price * item.quantity)}</p>
           <div class="quantity-controls">
             <button class="quantity-btn" data-id="${index}" data-change="-1">-</button>
             <span>${item.quantity}</span>
@@ -56,7 +59,6 @@ function updateCart() {
 
 function setupCartUI() {
   cartDisplayElement.addEventListener('click', () => {
-    console.log('clicked')
     cartModal.style.display = "flex";
     document.querySelector('.modal').style.display ="flex";
     document.body.classList.add("modal-open");
@@ -117,5 +119,36 @@ function setupCartUI() {
   });
   updateCart();
 }
+
+
+window.addEventListener('scroll', () => {
+  const footer = document.querySelector('footer');
+  const icon = document.querySelector('#cart-icon');
+
+  const iconHeight = icon.offsetHeight;
+  const footerRect = footer.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  const iconBottomInViewport = windowHeight - 20; // 20px from bottom
+  const footerTopInViewport = footerRect.top;
+
+  if (footerTopInViewport < iconBottomInViewport) {
+    // Footer is overlapping the icon, switch to absolute position
+    const scrollTop = window.scrollY;
+    const footerTop = footer.offsetTop;
+    const newTop = footerTop - iconHeight - 20;
+
+    icon.classList.add('static');
+    icon.style.top = `${newTop}px`;
+    icon.style.right = '20px';
+    icon.style.bottom = 'auto';
+  } else {
+    // Footer not in view, stay fixed
+    icon.classList.remove('static');
+    icon.style.top = 'auto';
+    icon.style.bottom = '20px';
+    icon.style.right = '20px';
+  }
+});
 
 export { cart, cartCount, updateCart, setupCartUI };

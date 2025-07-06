@@ -50,3 +50,15 @@
 .close:hover{
   color: darkred;
 }
+
+@media (max-width: 1024px) {
+  .modal-wrapper {
+   width: 65%;
+  }
+}
+
+@media (max-width: 720px) {
+  .modal-wrapper {
+    width: 95%;
+  }
+}

@@ -14,6 +14,9 @@
   cursor: pointer;
   font-size: 24px;
 }
+#cart-icon.static {
+  position: absolute;
+}
 
 #cart-count {
   position: absolute;

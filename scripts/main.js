@@ -122,3 +122,10 @@ clearSearch.addEventListener('click', () => {
   resetMenuVisibility();
   noResultMsg.style.display = 'none';
 });
+
+const hamburgerBtn = document.getElementById("hamburger-btn");
+  const navMenu = document.querySelector(".nav-list");
+
+  hamburgerBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
