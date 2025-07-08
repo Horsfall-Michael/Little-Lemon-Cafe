@@ -1,8 +1,8 @@
 :root {
   --brand-color: #b65f10;
   --hover-color: #b85b09;
-  --font-main: Arial, Helvetica, sans-serif;
-  --font-display: Gabriola;
+  --font-main: Robotto, sans-serif;
+  --font-display: Dancing Script;
 }
 
 body {
@@ -32,7 +32,7 @@ body.modal-open {
 /* Header */
 header {
   position: relative;
-  height: 60vh;
+  height: 50vh;
   background: url("../images/hero-bg2_3.webp") center/cover no-repeat;
   color: #fff;
 }
@@ -343,7 +343,7 @@ section h1 {
 @media (max-width: 1024px) {
  header {
     position: relative;
-    height: 25vh;
+    height: 30vh;
  }
  .modal-wrapper {
     width: 85%;
@@ -351,6 +351,9 @@ section h1 {
 }
 
 @media (max-width: 720px) {
+  header {
+    height: 30vh;
+  }
   .navbar {
     justify-content: right;
     padding: 10px;
@@ -426,6 +429,12 @@ section h1 {
 
 
 @media (max-width: 420px){
+ header {
+    height: 35vh;
+ }
+ .hero-cup-image {
+  display: none;
+  }
  .menu-card {
     width: 95%;
   }
