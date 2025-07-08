@@ -44,7 +44,9 @@ header {
   justify-content: center;
   gap: 20px;
 }
-
+.nav-logo-text{
+  display:none;
+}
 .nav-list {
   display: flex;
   list-style: none;
@@ -55,6 +57,7 @@ header {
 
 /* Search */
 #searchInput {
+  display:block;
   padding: 5px;
   width: 250px;
   border-radius: 50px;
@@ -67,7 +70,7 @@ header {
 
 #searchInput::placeholder,
 #searchInput:focus {
-  color: #fff;
+  color: rgba(255,255,255,0.5);
 }
 
 #searchInput:focus {
@@ -100,6 +103,9 @@ header {
 
 #clearSearch:hover svg {
   color: #333;
+}
+.search-icon{
+  display: none;
 }
 
 /* Hero Section */
@@ -352,6 +358,12 @@ section h1 {
     justify-content: right;
     padding: 10px;
   }
+  #searchInput {
+    display:none;
+  }
+  .search-icon{
+    display: block;
+  }
   .hamburger {
     display: block;
   }
@@ -423,7 +435,19 @@ section h1 {
 
 
 @media (max-width: 420px){
- .hero-cup-image {
+  .nav-logo-text{
+    display:block;
+    width: 30vw;
+    position: absolute;
+    left: 10px;
+  }
+  .search-icon{
+    display: block;
+  }
+  .hero-logo-text {
+    display: none;
+ }
+  .hero-cup-image {
   display: none;
   }
  .menu-card {

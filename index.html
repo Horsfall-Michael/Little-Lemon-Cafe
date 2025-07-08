@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="An easy to do cafe website">
   <title>Little Lemon Cafe </title>
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/logo.webp">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="stylesheet"
@@ -38,6 +38,7 @@
 <body>
   <header>
     <nav class="navbar">
+      <img src="images/LLC-text.webp" alt="logo" class="nav-logo-text">
       <ul class="nav-list">
         <li>Home</li>
         <li>Menu</li>
@@ -45,7 +46,7 @@
         <li>Contact Us</li>
       </ul>
       <div class="search-wrapper">
-        <input type="text" id="searchInput" placeholder="Search menu items..." />
+        <input type="text" id="searchInput" placeholder="Search menu..." />
         <button id="clearSearch" title="Clear search">
           <svg xmlns="http://www.w3.org/2000/svg" height="18" width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
@@ -54,6 +55,7 @@
           </svg>
         </button>
       </div>
+      <i class="fa-solid fa-magnifying-glass js-search-toggle search-icon"></i>
       <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">  ☰ </button>
     </nav>
     <div class="hero-section-main">

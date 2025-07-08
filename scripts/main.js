@@ -214,7 +214,8 @@
   const cartTotalContainer = document.getElementById("cart-total");
   const cartTax = document.getElementById("tax");
   const cartSubTotal = document.getElementById("subtotal");
-
+  
+  
   function updateCart() {
     saveCart();
     cartItemsContainer.innerHTML = "";
@@ -381,6 +382,21 @@
   const searchInput = document.getElementById('searchInput');
   const clearSearch = document.getElementById('clearSearch');
   const noResultMsg = document.querySelector('.no-results');
+
+  const searchToggleElement = document.querySelector('.js-search-toggle');
+
+  let display = 'none';
+   searchToggleElement.addEventListener('click',()=>{
+    
+    if (display === 'none'){
+      searchInput.style.display = 'block';
+      display = 'block';
+      
+    }else if (display === 'block'){
+      searchInput.style.display = 'none';
+      display = 'none';
+    };
+    });
 
   function resetMenuVisibility() {
     document.querySelectorAll('.category-section').forEach(section => {
