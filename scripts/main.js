@@ -154,37 +154,37 @@
     name: 'Fruit Cup',
     priceCents: 320,
     description: 'Seasonal fresh fruit served chilled.',
-    category: 'Desert',
+    category: 'Dessert',
   },{
     image:'images/brownie.webp',
     name:'Brownie',
     priceCents: 450,
     description:'A decadent and chocolate treat.',
-    category:'Desert'
+    category:'Dessert'
   },{
     image:'images/cookie.webp',
     name:'Cookie',
     priceCents: 450,
-    description:'Chocolate and otmeal treat.',
-    category:'Desert'
+    description:'Chocolate and oatmeal treat.',
+    category:'Dessert'
   },{
     image: 'images/Lemon_Tartlets.webp',
     name: 'Lemon Tart',
     priceCents: 400,
     description: 'Tangy lemon curd in a buttery pastry shell.',
-    category: 'Desert',
+    category: 'Dessert',
   },{
     image: 'images/Cinnamon Rolls.webp',
     name: 'Cinnamon Roll',
     priceCents: 350,
     description: 'Warm, soft roll with cinnamon sugar and icing.',
-    category: 'Desert',
+    category: 'Dessert',
   },{
     image:'images/cheese cake.webp',
     name:'Cheesecake',
     priceCents: 550,
     description:'A slice of some creamy and smooth cheese cake.',
-    category:'Desert'
+    category:'Dessert'
   }
   ];
 
@@ -324,7 +324,7 @@
     Coffee: '',
     Tea: '',
     Food: '',
-    Desert: ''
+    Dessert: ''
   };
 
   products.forEach(product => {
