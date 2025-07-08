@@ -33,7 +33,7 @@ body.modal-open {
 header {
   position: relative;
   height: 60vh;
-  background: url("../images/hero-bg2.png") center/cover no-repeat;
+  background: url("../images/hero-bg2_3.webp") center/cover no-repeat;
   color: #fff;
 }
 
@@ -277,7 +277,7 @@ section h1 {
 /* Footer */
 .footer {
   width: 100%;
-  background: url(../images/footer-bg.png) center / cover no-repeat;
+  background: url(../images/footer-bg.webp) center / cover no-repeat;
   color: white;
   display: flex;
   gap: 10px;
@@ -417,5 +417,16 @@ section h1 {
   }
   .flex-list{
    display: none;
+  }
+  .first-flex-item{
+    width:100%;
+  }
+
+}
+
+
+@media (max-width: 420px){
+ .menu-card {
+    width: 95%;
   }
 }
