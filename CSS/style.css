@@ -32,7 +32,7 @@ body.modal-open {
 /* Header */
 header {
   position: relative;
-  height: 50vh;
+  height:fit-content;
   background: url("../images/hero-bg2_3.webp") center/cover no-repeat;
   color: #fff;
 }
@@ -131,6 +131,7 @@ header {
   background-color: #603809;
   border-radius: 10px;
   width: 30%;
+  margin-bottom: 10px;
 }
 
 .order-cta a {
@@ -341,19 +342,12 @@ section h1 {
 
 /* Responsive */
 @media (max-width: 1024px) {
- header {
-    position: relative;
-    height: 30vh;
- }
  .modal-wrapper {
     width: 85%;
  }
 }
 
 @media (max-width: 720px) {
-  header {
-    height: 30vh;
-  }
   .navbar {
     justify-content: right;
     padding: 10px;
@@ -429,9 +423,6 @@ section h1 {
 
 
 @media (max-width: 420px){
- header {
-    height: 35vh;
- }
  .hero-cup-image {
   display: none;
   }
