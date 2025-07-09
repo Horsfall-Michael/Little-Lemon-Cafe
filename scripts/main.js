@@ -67,7 +67,7 @@
     image:'images/hot_chocolate.webp',
     name:'Hot Chocolate',
     priceCents: 475,
-    description:'Reach and creamy chocolate drink',
+    description:'Rich and creamy chocolate drink',
     category:'Tea'
   },{
     image:'images/iced_green_tea_4.webp',
@@ -165,7 +165,7 @@
     image:'images/cookie.webp',
     name:'Cookie',
     priceCents: 450,
-    description:'Chocolate and otmeal treat.',
+    description:'Chocolate and oatmeal treat.',
     category:'Dessert'
   },{
     image: 'images/Lemon_Tartlets.webp',
