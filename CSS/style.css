@@ -448,6 +448,10 @@ section h1 {
     width: 140px;
     right:-10px;
   }
+  #clearSearch {
+  right: -10px;
+  top: 28px;
+}
   .hero-logo-text {
     display: none;
  }
