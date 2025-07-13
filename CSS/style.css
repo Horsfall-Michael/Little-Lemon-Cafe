@@ -444,6 +444,10 @@ section h1 {
   .search-icon{
     display: block;
   }
+  #searchInput {
+    width: 140px;
+    right:-10px;
+  }
   .hero-logo-text {
     display: none;
  }
